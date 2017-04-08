@@ -6,13 +6,16 @@ const path = require("path");
 
 const app = express();
 
+
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use('/', require('api/config/routes.js'));
+const routes = require('./api/config/routes.js')
+
+app.use('/api', routes);
 
 const url = 3000;
 
