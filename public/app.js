@@ -3,9 +3,8 @@
   console.log('I am tempname module');
   angular
     .module('movieApp', [])
-    .controller('mainController', function(){
+    .controller('mainController',['$http', movieController])
       console.log('I am mainController')
-      movieController.$inject = ['$http'];
       function movieController($http){
         let vm = this;
         vm.all = [];
@@ -21,7 +20,6 @@
           }, function(err){
             console.log(err)
           });
-
       }
-    })
+
 })();
