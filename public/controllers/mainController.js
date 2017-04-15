@@ -1,12 +1,12 @@
-(function(){
+// import movieController from './movieController.js'
+function mainController(){
   'use strict';
-
+  console.log('I am mainController')
   angular
-    .module('tempNameApp', [])
-    .controller('foodItemsController', foodItemsController);
+    .controller('mainController', movieController);
 
-    foodItemsController.$inject = ['$http'];
-    function foodItemsController($http){
+    movieController.$inject = ['$http'];
+    function movieController($http){
       let vm = this;
       vm.all = [];
       $http
@@ -24,3 +24,5 @@
 
     }
 })();
+
+export default mainController();
